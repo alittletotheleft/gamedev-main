@@ -9,7 +9,6 @@ public class Bedrock : MonoBehaviour
             // Eeeeehhhhh
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             player.Reset();
-            Debug.Log("boogsh");
         }
     }
 }
