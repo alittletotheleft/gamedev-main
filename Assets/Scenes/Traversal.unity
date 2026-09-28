@@ -1321,6 +1321,7 @@ GameObject:
   - component: {fileID: 693250569}
   - component: {fileID: 693250568}
   - component: {fileID: 693250572}
+  - component: {fileID: 693250576}
   - component: {fileID: 693250573}
   - component: {fileID: 693250575}
   m_Layer: 0
@@ -1347,7 +1348,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -1444,7 +1445,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.87
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1462,9 +1463,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c147cafd2e21654c940f7d61d72d593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 10
-  jumpHeight: 1.5
-  gravity: -9.81
+  moveSpeed: 9.36
+  moveSmoothing: 24.08
+  jumpHeight: 2.43
+  gravity: -28.3
 --- !u!114 &693250575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1594,6 +1596,27 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!65 &693250576
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693250567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &815891847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6243746082619680988, guid: 205f1a52dafdd114a9b24817bf978cbe, type: 3}
@@ -1667,6 +1690,7 @@ GameObject:
   - component: {fileID: 872344609}
   - component: {fileID: 872344608}
   - component: {fileID: 872344607}
+  - component: {fileID: 872344610}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1748,6 +1772,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+--- !u!114 &872344610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872344606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44a159dfd0187847a2242cdffcd8051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
+  playerTransform: {fileID: 693250571}
+  cameraSmoothing: 5
 --- !u!1001 &1186088671
 PrefabInstance:
   m_ObjectHideFlags: 0
