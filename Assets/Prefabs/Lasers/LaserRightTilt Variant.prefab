@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserRightTilt Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 179403968857787454, guid: 1816c6de74a95214a8845f3f007c4d75, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6010363120195618690, guid: 1816c6de74a95214a8845f3f007c4d75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
