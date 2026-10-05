@@ -136,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6653561336570644150}
+  - component: {fileID: 7868050588039126343}
   m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
@@ -160,6 +161,45 @@ Transform:
   - {fileID: 7776271382717316477}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7868050588039126343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534766418907853237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047cf907c4db0984985c954d947893e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpotlightRotation
+  lamp: {fileID: 7776271382717316477}
+  duration: 2.5
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  angles: {x: -40, y: -25}
 --- !u!1 &6837819889368940614
 GameObject:
   m_ObjectHideFlags: 0
@@ -35463,14 +35503,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9176238261214343019}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.2975375, w: 0.9547101}
+  m_LocalRotation: {x: 0, y: 0, z: -0.30070576, w: 0.953717}
   m_LocalPosition: {x: -0.5600004, y: 18.745508, z: -0.13000011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7670248564968391690}
   m_Father: {fileID: 6653561336570644150}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.62}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -35}
 --- !u!114 &8711546324380345721
 MonoBehaviour:
   m_ObjectHideFlags: 0
