@@ -20,7 +20,7 @@ public class LaserSpawner : MonoBehaviour
     private Coroutine laserSpawning;
     private bool isSpawning = false;
 
-    public void StartSpawning()
+    public void StartGame()
     {
         if (isSpawning)
         {
@@ -32,7 +32,7 @@ public class LaserSpawner : MonoBehaviour
         isSpawning = true;
     }
 
-    public void StopSpawning()
+    public void StopGame()
     {
         if (!isSpawning)
         {

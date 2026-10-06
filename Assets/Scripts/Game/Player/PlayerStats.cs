@@ -6,6 +6,8 @@ public class PlayerStats : ScriptableObject
 {
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
+    [SerializeField] private int healthRegen = 2;
+    [SerializeField] private float healthRegenCooldown = 1f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float sprintSpeed;
 
@@ -26,6 +28,24 @@ public class PlayerStats : ScriptableObject
             maxHealth = value < 0 ? 0 : value;
             if (health > maxHealth)
                 health = maxHealth;
+        }
+    }
+
+    public int HealthRegen
+    {
+        get => healthRegen;
+        set
+        {
+            healthRegen = value < 0 ? 0 : value;
+        }
+    }
+
+    public float HealthRegenCooldown
+    {
+        get => healthRegenCooldown;
+        set
+        {
+            healthRegenCooldown = Mathf.Abs(value);
         }
     }
 

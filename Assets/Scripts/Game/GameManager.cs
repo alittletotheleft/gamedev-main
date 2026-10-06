@@ -1,28 +1,32 @@
 using System.Collections;
 using NUnit.Framework.Internal;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
-    [SerializeField] private LaserSpawner laserSpawner;
-    [SerializeField] private float duration = 30f;
+    // [SerializeField] private LaserSpawner laserSpawner;
+    // [SerializeField] private UIManager uIManager;
+    [SerializeField] private UnityEvent GameStart;
+    [SerializeField] private UnityEvent GameStop;
     private Coroutine gameLoop;
 
     private void Start()
     {
         gameState.IsGameRunning = false;
-        
+
         StartGame();
-    } 
+    }
 
     private void StartGame()
     {
         if (gameState.IsGameRunning)
             return;
-        
-        laserSpawner.StartSpawning();
-        gameLoop = StartCoroutine(GameLoop());
+
+        // laserSpawner.StartGame();
+        // uIManager.StartGame();
+        GameStart.Invoke();
         gameState.IsGameRunning = true;
     }
 
@@ -31,14 +35,9 @@ public class GameManager : MonoBehaviour
         if (!gameState.IsGameRunning)
             return;
 
-        laserSpawner.StopSpawning();
-        StopCoroutine(gameLoop);
+        // laserSpawner.StopGame();
+        GameStop.Invoke();
         gameState.IsGameRunning = false;
-    }
-
-    private IEnumerator GameLoop()
-    {
-        yield return new WaitForSeconds(duration);
     }
 
     public void OnPlayerDeath()
