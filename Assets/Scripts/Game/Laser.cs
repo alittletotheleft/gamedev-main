@@ -3,6 +3,12 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private int damage = 20;
+
+    public void SetMoveSpeed(float _moveSpeed)
+    {
+        moveSpeed = _moveSpeed;
+    }
 
     private void Update()
     {
@@ -23,7 +29,9 @@ public class Laser : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player hit oooooggssssshhhhh");
+            Player player = other.GetComponentInParent<Player>();
+            player?.TakeDamage(damage);
+            // Debug.Log("Player hit oooooggssssshhhhh");
         }
     }
 }

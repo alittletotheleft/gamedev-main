@@ -9,6 +9,7 @@ public struct LaserSpawnInfo
     public GameObject laser;
     public Vector3 position;
     public float angle;
+    public float moveSpeed;
 }
 
 public class LaserSpawner : MonoBehaviour
@@ -21,25 +22,27 @@ public class LaserSpawner : MonoBehaviour
 
     public void StartSpawning()
     {
-        if (!isSpawning)
+        if (isSpawning)
         {
-            laserSpawning = StartCoroutine(LaserSpawning());
-            isSpawning = true;
+            Debug.LogWarning($"[WARNING] Attempted to START already-running coroutine {laserSpawning.ToString()}.");
+            return;
         }
-        else
-            Debug.LogWarning($"[WARNING] Attempted to start already-running coroutine {laserSpawning.ToString()}.");
+
+        laserSpawning = StartCoroutine(LaserSpawning());
+        isSpawning = true;
     }
 
     public void StopSpawning()
     {
-        if (isSpawning)
+        if (!isSpawning)
         {
-            StopCoroutine(laserSpawning);
-            laserSpawning = null;
-            isSpawning = false;
+            Debug.LogWarning($"[WARNING] Attempted to STOP already-stopped coroutine {laserSpawning.ToString()}.");
+            return;
         }
-        else
-            Debug.LogWarning($"[WARNING] Attempted to stop already-stopped coroutine {laserSpawning.ToString()}.");
+
+        StopCoroutine(laserSpawning);
+        laserSpawning = null;
+        isSpawning = false;
     }
 
     private IEnumerator LaserSpawning()
@@ -58,5 +61,8 @@ public class LaserSpawner : MonoBehaviour
         int newLaserIndex = Random.Range(0, lasers.Length);
         GameObject newLaser = Instantiate(lasers[newLaserIndex].laser, laserSpawnPoint);
         newLaser.transform.SetLocalPositionAndRotation(lasers[newLaserIndex].position, Quaternion.Euler(0, 0, lasers[newLaserIndex].angle));
+        
+        Laser l = newLaser.GetComponent<Laser>();
+        l.SetMoveSpeed(lasers[newLaserIndex].moveSpeed);
     }
 }

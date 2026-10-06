@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7118063090857240889}
   m_Layer: 6
-  m_Name: LaserWall
+  m_Name: LaserRedWall
   m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
