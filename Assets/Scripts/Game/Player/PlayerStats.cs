@@ -10,6 +10,8 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float healthRegenCooldown = 1f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float sprintSpeed;
+    [SerializeField] private float boostDuration;
+    [SerializeField] private bool isBoosted;
 
     public int Health
     {
@@ -66,4 +68,6 @@ public class PlayerStats : ScriptableObject
             sprintSpeed = value < 0f ? 0f : value;
         }
     }
+
+    public bool IsBoosted { get; set; }
 }

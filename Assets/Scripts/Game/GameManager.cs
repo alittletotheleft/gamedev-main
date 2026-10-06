@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     // [SerializeField] private UIManager uIManager;
     [SerializeField] private UnityEvent GameStart;
     [SerializeField] private UnityEvent GameStop;
-    private Coroutine gameLoop;
 
     private void Start()
     {
