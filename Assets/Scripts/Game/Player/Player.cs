@@ -14,9 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField] private int baseMaxHealth = 100;
     [SerializeField] private float baseMoveSpeed = 4f;
     [SerializeField] private float baseSprintSpeed = 6.5f;
+    [SerializeField] private float fOVBoost = 16f;
     [SerializeField] private float fOVDuration = 0.5f;
     [SerializeField] private AnimationCurve fOVCurve;
-    [SerializeField] private UnityEvent playerDeath;
+    [SerializeField] private UnityEvent PlayerDeath;
     private float originalFOV;
 
     private Coroutine healthRegen = null;
@@ -78,7 +79,7 @@ public class Player : MonoBehaviour
         Debug.Log($"Player health: {playerStats.Health}");
         if (playerStats.Health <= 0)
         {
-            playerDeath.Invoke();
+            PlayerDeath.Invoke();
         }
     }
 
@@ -96,12 +97,12 @@ public class Player : MonoBehaviour
         playerStats.MoveSpeed = baseMoveSpeed + speedBoost;
         playerStats.SprintSpeed = baseSprintSpeed + speedBoost;
         // playerCameraFollow.Lens.FieldOfView = originalFOV + 12;
-        Coroutine fov = StartCoroutine(FOVSmooth(originalFOV, originalFOV+12));
+        Coroutine fov = StartCoroutine(FOVSmooth(originalFOV, originalFOV+fOVBoost));
 
         yield return new WaitForSeconds(duration);
 
         StopCoroutine(fov);
-        fov = StartCoroutine(FOVSmooth(originalFOV+12, originalFOV));
+        fov = StartCoroutine(FOVSmooth(originalFOV+fOVBoost, originalFOV));
         playerStats.MoveSpeed = baseMoveSpeed;
         playerStats.SprintSpeed = baseSprintSpeed;
         playerCameraFollow.Lens.FieldOfView = originalFOV;

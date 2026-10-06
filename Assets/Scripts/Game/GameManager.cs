@@ -2,6 +2,7 @@ using System.Collections;
 using NUnit.Framework.Internal;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,11 +44,19 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Player died");
         StopGame();
+        StartCoroutine(GameReset());
     }
 
     public void OnPlayerGoal()
     {
         Debug.Log("Player won");
         StopGame();
+        StartCoroutine(GameReset());
+    }
+
+    private IEnumerator GameReset()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Main");
     }
 }

@@ -78,4 +78,14 @@ public class UIManager : MonoBehaviour
         boostBar.value = 0f;
         boostBar.gameObject.SetActive(false);
     }
+
+    public void OnPlayerDeath()
+    {
+        gameOverUI.SetActive(true);
+    }
+
+    public void OnPlayerGoal()
+    {
+        gameWinUI.SetActive(true);
+    }
 }
