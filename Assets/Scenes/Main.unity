@@ -3914,7 +3914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   gameState: {fileID: 11400000, guid: 6f5fccd61d3f5084b933ff6ce1f5599e, type: 2}
   level1: {fileID: 5642283030442048295, guid: 4425f9640b21c714ba3f311591a07f6b, type: 3}
-  level2: {fileID: 5642283030442048295, guid: 4425f9640b21c714ba3f311591a07f6b, type: 3}
+  level2: {fileID: 1536810305230232058, guid: cf3d01ae4886b2947afd126a497f57d6, type: 3}
 --- !u!1 &595765060
 GameObject:
   m_ObjectHideFlags: 0
