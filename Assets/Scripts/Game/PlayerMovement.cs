@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private GameState gameState;
+    [Space]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float moveSmoothing = 3.5f;
     [SerializeField] private Vector2 clamp = new (-20f, 20f);
@@ -24,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        movement = context.ReadValue<Vector2>();
+        if (gameState.IsGameRunning)
+        {
+            movement = context.ReadValue<Vector2>();
+        }
     }
 }

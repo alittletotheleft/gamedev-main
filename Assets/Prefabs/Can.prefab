@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 8369339115824199517}
   - component: {fileID: 8676883920359930017}
   - component: {fileID: 836641028316296095}
+  - component: {fileID: 6848546803488199309}
+  - component: {fileID: 6007929273047981374}
   m_Layer: 0
   m_Name: Can
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -889,3 +891,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6848546803488199309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8338742065497704609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de807e1e12dad6a4fa2a16d18667d2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objective
+--- !u!114 &6007929273047981374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8338742065497704609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323aaa4ca21c1084abbaf80b28d2fe4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
