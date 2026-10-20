@@ -4,13 +4,15 @@ using StarterAssets;
 using UnityEngine;
 using UnityEngine.Events;
 using Unity.Cinemachine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private ThirdPersonController thirdPersonController;
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private CinemachineCamera playerCameraFollow;
     [SerializeField] private GameState gameState;
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private GameObject flashlight;
     [SerializeField] private int baseMaxHealth = 100;
     [SerializeField] private float baseMoveSpeed = 4f;
     [SerializeField] private float baseSprintSpeed = 6.5f;
@@ -25,14 +27,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        // baseMoveSpeed = thirdPersonController.MoveSpeed;
-        // baseSprintSpeed = thirdPersonController.SprintSpeed;
-
         playerStats.MaxHealth = baseMaxHealth;
         playerStats.Health = baseMaxHealth;
         playerStats.MoveSpeed = baseMoveSpeed;
         playerStats.SprintSpeed = baseSprintSpeed;
         originalFOV = playerCameraFollow.Lens.FieldOfView;
+        playerStats.IsFlashlightOn = false;
+        flashlight.SetActive(false);
 
         Debug.Log($"Player health: {playerStats.Health}");
     }
@@ -52,6 +53,18 @@ public class Player : MonoBehaviour
         {
             StopCoroutine(healthRegen);
             healthRegen = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (playerStats.IsFlashlightOn)
+        {
+            Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * 100f, Color.red, 0.1f);
+            // if (Physics.SphereCast(mainCamera.transform.position, mainCamera.transform.forward, 100f, flashlightMask))
+            // {
+                
+            // }
         }
     }
 
@@ -76,7 +89,7 @@ public class Player : MonoBehaviour
         }
 
         playerStats.Health -= damage;
-        Debug.Log($"Player health: {playerStats.Health}");
+        // Debug.Log($"Player health: {playerStats.Health}");
         if (playerStats.Health <= 0)
         {
             PlayerDeath.Invoke();
@@ -120,5 +133,22 @@ public class Player : MonoBehaviour
             yield return null;
         }
         playerCameraFollow.Lens.FieldOfView = end;
+    }
+
+    public void OnFlashlight(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if (playerStats.IsFlashlightOn)
+            {
+                playerStats.IsFlashlightOn = false;
+                flashlight.SetActive(false);
+            }
+            else
+            {
+                playerStats.IsFlashlightOn = true;
+                flashlight.SetActive(true);
+            }
+        }
     }
 }

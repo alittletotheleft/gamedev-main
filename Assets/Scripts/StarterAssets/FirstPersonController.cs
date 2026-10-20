@@ -11,6 +11,9 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		public GameState gameState;
+		public PlayerStats playerStats;
+		
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -112,6 +115,11 @@ namespace StarterAssets
 
 		private void Update()
 		{
+			if (!gameState.IsGameRunning)
+			{
+					return;
+			}
+			
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
@@ -154,7 +162,8 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			// float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			float targetSpeed = _input.sprint ? playerStats.SprintSpeed : playerStats.MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

@@ -27,6 +27,9 @@ namespace StarterAssets
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
+        
+        [Tooltip("Rotation speed of the character")]
+		public float RotationSpeed = 1.0f;
 
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
@@ -200,23 +203,36 @@ namespace StarterAssets
 
         private void CameraRotation()
         {
-            // if there is an input and camera position is not fixed
-            if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
-            {
-                //Don't multiply mouse input by Time.deltaTime;
-                float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+            // // if there is an input and camera position is not fixed
+            // if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
+            // {
+            //     //Don't multiply mouse input by Time.deltaTime;
+            //     float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
-            }
+            //     _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
+            //     _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+            // }
 
-            // clamp our rotations so our values are limited 360 degrees
-            _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
+            // // clamp our rotations so our values are limited 360 degrees
+            // _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
+            // _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+
+            // // Cinemachine will follow this target
+            // CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
+            //     _cinemachineTargetYaw, 0.0f);
+
+            float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+            _cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
+            _rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
+
+            // clamp our pitch rotation
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
-            // Cinemachine will follow this target
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
-                _cinemachineTargetYaw, 0.0f);
+            // Update Cinemachine camera target pitch
+            CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+
+            // rotate the player left and right
+            transform.Rotate(Vector3.up * _rotationVelocity);
         }
 
         private void Move()

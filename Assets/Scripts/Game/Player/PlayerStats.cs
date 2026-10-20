@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Schema;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerStats", menuName = "ScriptableObjects/PlayerStats")]
@@ -11,7 +12,6 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float moveSpeed;
     [SerializeField] private float sprintSpeed;
     [SerializeField] private float boostDuration;
-    [SerializeField] private bool isBoosted;
 
     public int Health
     {
@@ -70,4 +70,5 @@ public class PlayerStats : ScriptableObject
     }
 
     public bool IsBoosted { get; set; }
+    public bool IsFlashlightOn { get; set; }
 }
