@@ -110,6 +110,8 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _ScreenSpaceReflections: 1
+    - _ScreenSpaceReflectionsContributeTransparent: 1
     - _Smoothness: 0.581
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -122,7 +124,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.2811256, g: 0.45283014, b: 0.19864717, a: 1}
-    - _Color: {r: 0.28112558, g: 0.45283008, b: 0.19864714, a: 1}
+    - _Color: {r: 0.2811256, g: 0.45283014, b: 0.19864717, a: 1}
     - _EmissionColor: {r: 0.3018868, g: 0.118175045, b: 0.11249555, a: 1}
     - _SpecColor: {r: 0.17528479, g: 0.26045182, b: 0.3679245, a: 1}
   m_BuildTextureStacks: []
