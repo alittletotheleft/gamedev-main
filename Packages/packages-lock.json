@@ -2,13 +2,13 @@
   "dependencies": {
     "com.unity.burst": {
       "version": "2.0.0",
-      "depth": 3,
+      "depth": 2,
       "source": "builtin",
       "dependencies": {}
     },
     "com.unity.collections": {
       "version": "6.6.0",
-      "depth": 3,
+      "depth": 2,
       "source": "builtin",
       "dependencies": {
         "com.unity.burst": "1.8.25",
@@ -58,7 +58,7 @@
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.6",
-      "depth": 4,
+      "depth": 3,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -77,20 +77,38 @@
     },
     "com.unity.profiling.core": {
       "version": "1.0.3",
-      "depth": 3,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
       "version": "17.6.0",
-      "depth": 2,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.burst": "1.8.14",
         "com.unity.collections": "2.4.3",
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.profiling.core": "1.0.3"
+      }
+    },
+    "com.unity.render-pipelines.universal": {
+      "version": "17.6.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "17.6.0",
+        "com.unity.shadergraph": "17.6.0",
+        "com.unity.render-pipelines.universal-config": "17.6.0"
+      }
+    },
+    "com.unity.render-pipelines.universal-config": {
+      "version": "17.6.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "17.6.0"
       }
     },
     "com.unity.searcher": {
@@ -129,7 +147,7 @@
     },
     "com.unity.test-framework.performance": {
       "version": "6.6.0",
-      "depth": 4,
+      "depth": 3,
       "source": "builtin",
       "dependencies": {
         "com.unity.test-framework": "1.1.33",

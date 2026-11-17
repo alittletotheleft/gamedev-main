@@ -1,0 +1,18 @@
+{
+    "name": "UnityTechnologies.ParticlePack.Editor",
+    "rootNamespace": "UnityTechnologies.ParticlePack",
+    "references": [
+        "UnityTechnologies.ParticlePack"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

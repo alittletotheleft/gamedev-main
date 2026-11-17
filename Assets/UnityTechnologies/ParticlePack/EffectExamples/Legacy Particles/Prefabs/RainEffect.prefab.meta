@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d0c0b49979d372942ae5a964d9364111
+timeCreated: 1473175611
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 127325
+  packageName: Particle Pack | Starter Assets
+  packageVersion: 3.3
+  assetPath: Assets/UnityTechnologies/ParticlePack/EffectExamples/Legacy Particles/Prefabs/RainEffect.prefab
+  uploadId: 1015842
