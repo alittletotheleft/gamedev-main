@@ -1,4 +1,5 @@
-> ⚠️ Under construction...
+> [!WARNING]
+> This repository is still under construction. Lol
 
 # GAMEDEV
 
@@ -12,3 +13,5 @@ Main repository for my GAMEDEV works
   - Dodging lasers in a bleak dystopian landscape
 - [Knockdown](https://github.com/alittletotheleft/gamedev-main/tree/knockdown)
   - *"Step riiiight up! Think you can knock all of the cans down?"*
+- [VFX Particles](https://github.com/alittletotheleft/gamedev-main/tree/vfx-particles)
+  - MAGICAL GIRL VS. EVIL AURA WHO WINS
